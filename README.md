@@ -1,3 +1,3 @@
-## Arquitecturas Avanzadas con Microservicios y DevOps
+## Advanced Architectures with Microservices and DevOps
 
-Repositorio creado para el curso de Arquitecturas avanzadas con Microservicios y Devops.
+Repository created for the course of Advanced Architectures with Microservices and DevOps.
