@@ -1,0 +1,21 @@
+{
+  "id": 1,
+  "catalogNumber": "CAMISETAS",
+  "name": "Camisetas",
+  "products": [
+    {
+      "id": "1",
+      "name": "Camisetas",
+      "productId": "SKU-24642",
+      "description": "Camisetas grandes",
+      "inStock": true
+    },
+    {
+      "id": "2",
+      "name": "Pantalones",
+      "productId": "SKU-12464",
+      "description": "Pantalones grandes",
+      "inStock": true
+    }
+  ]
+}

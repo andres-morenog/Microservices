@@ -1,0 +1,33 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: shop-udea-ui
+spec:
+  selector:
+    app: shop-udea-ui
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8787
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shop-udea-ui
+  labels:
+    app: shop-udea-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shop-udea-ui
+  template:
+    metadata:
+      labels:
+        app: shop-udea-ui
+    spec:
+      containers:
+      - name: shop-udea-ui
+        image: dialtahi/shop-udea-ui:latest
+        ports:
+        - containerPort: 8787
