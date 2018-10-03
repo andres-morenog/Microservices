@@ -1,0 +1,41 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: shop-udea-user
+spec:
+  selector:
+    app: shop-udea-user
+  ports:
+  - protocol: TCP
+    port: 8181
+    targetPort: 31000
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shop-udea-user
+  labels:
+    app: shop-udea-user
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shop-udea-user
+  template:
+    metadata:
+      labels:
+        app: shop-udea-user
+    spec:
+      containers:
+      - name: shop-udea-user
+        image: dialtahi/shop-udea-user:latest
+        env:
+        - name: DOCKER_IP
+          value: mysql
+        - name: SPRING_PROFILES_ACTIVE
+          value: docker
+        - name: MYSQL_PASS
+          value: password
+        ports:
+        - containerPort: 8181

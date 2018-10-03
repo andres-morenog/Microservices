@@ -1,0 +1,21 @@
+{
+  "orderId": 1,
+  "userId": "user",
+  "orderStatus": "PENDING",
+  "shippingAddress": {
+    "street1": "My home",
+    "street2": "My job",
+    "state": "Antioqua",
+    "city": "Medellin",
+    "country": "Colombia"
+  },
+  "lineItems": [
+    {
+      "name": "Camisetas",
+      "productId": "SKU-24642",
+      "quantity": 3,
+      "price": 120000.00,
+      "tax": 2000.50
+    }
+  ]
+}

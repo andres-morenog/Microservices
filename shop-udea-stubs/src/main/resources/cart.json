@@ -1,0 +1,40 @@
+{
+  "productMap": {
+    "SKU-12464": 3
+  },
+  "lineItems": [
+    {
+      "id": "1",
+      "name": "Camisetas",
+      "productId": "SKU-24642",
+      "product" : {
+        "id": "1",
+        "name": "Camisetas",
+        "productId": "SKU-24642",
+        "description": "Camisetas grandes",
+        "unitPrice": "120000.00",
+        "inStock": true
+      },
+      "posterImage": "SKU-24642",
+      "description": "Camisetas grandes",
+      "inStock": true,
+      "quantity": 3,
+      "unitPrice": 120000.00,
+      "tax": 2000.50
+    }
+  ],
+  "catalog": {
+    "id": 1,
+    "catalogNumber": "CAMISETAS",
+    "name": "Camisetas",
+    "products": [
+      {
+        "id": "1",
+        "name": "Camisetas",
+        "productId": "SKU-24642",
+        "description": "Camisetas grandes",
+        "inStock": true
+      }
+    ]
+  }
+}

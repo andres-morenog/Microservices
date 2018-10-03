@@ -14,10 +14,16 @@ zuul:
       url: http://127.0.0.1:9999
     order-service:
       path: /api/order/**
-      url: http://127.0.0.1:8888
+      url: http://127.0.0.1:9999
+    accounts-service:
+      path: /api/account/**
+      url: http://127.0.0.1:9999
+    shoppingcart-service:
+      path: /api/shoppingcart/**
+      url: http://127.0.0.1:9999
     auth-service:
-      path: /user/**
-      url: http://127.0.0.1:8181/uaa/user
+      path: /api/user/**
+      url: http://127.0.0.1:8181
 security:
   enable-csrf: false
   oauth2:
@@ -46,12 +52,21 @@ spring:
 zuul:
   ignored-services: '*'
   routes:
-    edge-service:
-      path: /api/**
+    catalog-service:
+      path: /api/catalog/**
+      url: http://${DOCKER_IP:127.0.0.1}:9999
+    order-service:
+      path: /api/order/**
+      url: http://${DOCKER_IP:127.0.0.1}:9999
+    accounts-service:
+      path: /api/account/**
+      url: http://${DOCKER_IP:127.0.0.1}:9999
+    shoppingcart-service:
+      path: /api/shoppingcart/**
       url: http://${DOCKER_IP:127.0.0.1}:9999
     auth-service:
-      path: /user/**
-      url: http://${DOCKER_IP:127.0.0.1}:8181/uaa/user
+      path: /api/user/**
+      url: http://${DOCKER_IP:127.0.0.1}:8181
 security:
   enable-csrf: false
   oauth2:
@@ -62,6 +77,7 @@ security:
       userAuthorizationUri: http://${DOCKER_IP:127.0.0.1}:8181/uaa/oauth/authorize
       clientId: acme
       clientSecret: acmesecret
+  ignored: /assets/**
 eureka:
   instance:
     non-secure-port: 8787
@@ -73,18 +89,27 @@ eureka:
       defaultZone: http://127.0.0.1:8761/eureka/
 ---
 spring:
-  profiles: kubernetes
+  profiles: prod
   application:
     name: shop-udea-ui
 zuul:
   ignored-services: '*'
   routes:
-    edge-service:
+    catalog-service:
       path: /api/catalog/**
-      url: http://catalog-service:9999
+      url: http://shop-udea-stubs:9999
+    order-service:
+      path: /api/order/**
+      url: http://shop-udea-stubs:9999
+    accounts-service:
+      path: /api/account/**
+      url: http://shop-udea-stubs:9999
+    shoppingcart-service:
+      path: /api/shoppingcart/**
+      url: http://shop-udea-stubs:9999
     auth-service:
-      path: /user/**
-      url: http://${DOCKER_IP:127.0.0.1}:8181/uaa/user
+      path: /api/user/**
+      url: http://shop-udea-user:8181
 security:
   enable-csrf: false
   oauth2:

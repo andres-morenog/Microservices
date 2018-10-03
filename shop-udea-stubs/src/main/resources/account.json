@@ -1,0 +1,10 @@
+[{
+
+  "id": 1,
+  "userId": "user",
+  "accountNumber": "12345",
+  "defaultAccount": true,
+  "creditCard": {
+    "number": ""
+  }
+}]
